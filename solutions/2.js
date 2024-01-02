@@ -58,6 +58,8 @@ const deleteEntry = async (date) => {
   }
 };
 
+
+
 const main = async () => {
   await ensureJournalDirExists();
 
@@ -72,6 +74,9 @@ const main = async () => {
     case "delete":
       await deleteEntry(args[1]);
       break;
+    case "open":
+      await openEntry(args[1]);
+      break;
     default:
       console.log(`
 Usage:
@@ -79,6 +84,7 @@ Usage:
 - Pour ajouter une entrée : node journal.js add <date> <content>
 - Pour supprimer une entrée : node journal.js delete <date>
 - Pour rechercher une entrée : node journal.js search <query>
+- pour ouvrir une entrée: node script.js open <date>
 `);
   }
 };
